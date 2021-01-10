@@ -66,32 +66,12 @@
         <link rel="shortcut icon" type="image/png" href="/assets/images/logo.png" />
     </head>
     <body>
-        <div id="nav-container" class="noselect">
-            <div id="nav-header">
-                <click url="/" id="header">{{{footerText}}}</click>
-            </div>
-            <nav id="menu">
-                <div id="defaultButtons">
-                    <click url="/" id="homeButton">Home</click>
-                    <click url="/search" id="searchButton">Search</click>
-                </div>
-                <div id="pageButtons">
-                    {% for page in site.data.pages %}
-                    <click url="{{ page.url }}" class="pageButton">{{ page.title }}</click>
-                    {% endfor %}
-                </div>
-            </nav>
-        </div>
+        {% include nav.html %}
         <div id="page-content">
             <div id="inner-page-content" {{ page.optionalClass }}>
                 {{ content }}
             </div>
         </div>
-        <script src="/assets/js/main.min.js?v=1" async></script>
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet" />
-        {{ page.includes }}
-        <script>
-            window.addEventListener("load", () => { document.getElementById("copyright").append(new Date().getFullYear().toString()) })
-        </script>
+        {% include footer.html %}
     </body>
 </html>

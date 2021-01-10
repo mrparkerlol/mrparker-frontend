@@ -1,0 +1,16 @@
+<div id="nav-container" class="noselect">
+    <div id="nav-header">
+        <click url="/" id="header">{{ site.data.metadata["header"] }}</click>
+    </div>
+    <nav id="menu">
+        <div id="defaultButtons">
+            <click url="/" id="homeButton">Home</click>
+            <click url="/search" id="searchButton">Search</click>
+        </div>
+        <div id="pageButtons">
+            {% for page in site.data.pages %}
+            <click url="{{ page.url }}" class="pageButton">{{ page.title }}</click>
+            {% endfor %}
+        </div>
+    </nav>
+</div>
