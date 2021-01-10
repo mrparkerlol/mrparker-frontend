@@ -3,10 +3,10 @@
     <head>
         {% if page.title %}
         <!-- Post Title -->
-        <title>{{ page.title }} - {{ site.data.config["title"] }}</title>
+        <title>{{ page.title }} - {{ site.data.metadata["title"] }}</title>
         {% elsif page.title == nil %}
         <!-- Default title -->
-        <title>{{ site.data.config["title"] }}</title>
+        <title>{{ site.data.metadata["title"] }}</title>
         {% endif %}
     </head>
     <body>
