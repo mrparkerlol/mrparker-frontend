@@ -4,12 +4,12 @@
     </div>
     <nav id="menu">
         <div id="defaultButtons">
-            <click url="/" id="homeButton">Home</click>
-            <click url="/search" id="searchButton">Search</click>
+            <click url="/" id="homeButton" class="inline">Home</click>
+            <click url="/search" id="searchButton" class="inline">Search</click>
         </div>
         <div id="pageButtons">
             {% for page in site.data.pages %}
-            <click url="{{ page.url }}" class="pageButton">{{ page.title }}</click>
+            <click url="{{ page.url }}" class="pageButton inline">{{ page.title }}</click>
             {% endfor %}
         </div>
     </nav>
