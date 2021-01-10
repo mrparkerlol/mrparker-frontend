@@ -3,10 +3,10 @@
     <head>
         {% if page.title %}
         <!-- Post Title -->
-        <title>{{ page.title }} - {{ sate.data.config["title"] }}</title>
+        <title>{{ page.title }} - {{ site.data.config["title"] }}</title>
         {% elsif page.title == nil %}
         <!-- Default title -->
-        <title>{{ sate.data.config["title"] }}</title>
+        <title>{{ site.data.config["title"] }}</title>
         {% endif %}
     </head>
     <body>
