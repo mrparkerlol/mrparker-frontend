@@ -8,9 +8,90 @@
         <!-- Default title -->
         <title>{{ site.data.metadata["title"] }}</title>
         {% endif %}
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <style>
+            body {background-color: rgb(66, 66, 66);}
+            #results { text-align:center; }
+            #searchbox{width:85%;text-align:center;margin:0 auto;display:flex;}
+            #username, #password {width: 65%;margin:0 auto;display:flex;}
+            #loginSubmit { text-align:center;width:25%;margin:0 auto;display:block;line-height:35px}
+            #nav-header,#page-content,footer,.author,#author {position:relative;}
+            footer {max-width:85%;margin:0 auto;font-family: 'Source Sans Pro', sans-serif;}
+            #nav-header {top:-.9em;margin:0 auto -17px;}
+            #nav-container {margin-bottom: -1.42em; padding-bottom:20px;}
+            #page-content{width: 85%;margin:auto;margin-bottom:-1.4em;font-family: 'Noto Sans JP', sans-serif;padding-bottom: 20px;}
+            nav,#nav-header,#page-content,footer{background-color: white;}
+            #inner-page-content {padding: 5px;width:100%;height:100%;}
+            #nav-header click{font-size: 4.5em;letter-spacing: 0.1em;}
+            nav click{padding-left:5px;font-size: 1.5em;}
+            #loginButton {width:10%;}
+            nav, footer {border-radius: 0 0 5px 5px;}
+            nav,#nav-container {width:100%;}
+            click{cursor:pointer;font-family: 'Source Sans Pro', sans-serif;}
+            .title {font-family: 'Noto Sans JP', sans-serif;}
+            .author,#author {top:-1.5em;font-family: 'Noto Sans JP', sans-serif;}
+            nav,#nav-header,footer,.author,.title,#title,#author{text-align:center;}
+            #cat404{max-width: 95%;max-height: 95%;display:block; margin:0 auto;}
+            .date {
+                position:relative;
+                top: -2.5em;
+            }
+            .noselect {
+                user-select: none;
+                -moz-user-select: none;
+                -khtml-user-select: none;
+                -webkit-user-select: none;
+                -o-user-select: none;
+
+                cursor: default;
+            }
+            #pageButtons, #defaultButtons, #loginButton {
+                display:inline;
+            }
+            .defaultCursor {
+                cursor:default;
+            }
+            .underline {
+                text-decoration:underline;
+            }
+            .center {
+                text-align:center;
+            }
+            .inline {
+                display:inline;
+            }
+        </style>
+        {{ page.inlinecss }}
+        <link rel="shortcut icon" type="image/png" href="/assets/images/logo.png" />
     </head>
     <body>
-        <h1>Hello World!</h1>
-        <p>hmm, seems to be a work in progress!</p>
+        <div id="nav-container" class="noselect">
+            <div id="nav-header">
+                <click url="/" id="header">{{{footerText}}}</click>
+            </div>
+            <nav id="menu">
+                <div id="defaultButtons">
+                    <click url="/" id="homeButton">Home</click>
+                    <click url="/search" id="searchButton">Search</click>
+                </div>
+                <div id="pageButtons">
+                    {% for page in site.data.pages %}
+                    <click url="{{ page.url }}" class="pageButton">{{ page.title }}</click>
+                    {% endfor %}
+                </div>
+            </nav>
+        </div>
+        <div id="page-content">
+            <div id="inner-page-content" {{ page.optionalClass }}>
+                {{ content }}
+            </div>
+        </div>
+        <script src="/assets/js/main.min.js?v=1" async></script>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet" />
+        {{ page.includes }}
+        <script>
+            window.addEventListener("load", () => { document.getElementById("copyright").append(new Date().getFullYear().toString()) })
+        </script>
     </body>
 </html>
