@@ -1,0 +1,15 @@
+#postTitle,#addPost,#pageTitle,#pageBody {font-size: 25pt;}
+#postTitle,#postBody,#pageTitle,#pageBody {border-radius:5px;}
+#postTitle,#pageTitle {
+    text-align:center;
+    width:95%;
+}
+#postBody,#pageBody {
+    margin-left:2.22%;
+    text-align:left;
+    width:95.23%;
+    height:350px;
+    font-size:17pt;
+    resize:vertical;
+    border: 1px solid black;
+}
